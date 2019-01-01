@@ -4,6 +4,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      image: registry.gitlab.com/atanu007/container_nginx:master 
     ports:
       - "8099:80"
