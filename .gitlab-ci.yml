@@ -6,6 +6,7 @@ services:
 stages:
 - build
 - test
+- check
 - release
 
 variables:
@@ -29,6 +30,11 @@ test:
     - sudo docker-compose up -d  
     - sleep 10s
     - sudo docker ps
+
+check:
+  stage: check
+  script:
+    - curl http://localhost:8099
 
 release:
   stage: release
