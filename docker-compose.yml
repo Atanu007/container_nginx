@@ -3,6 +3,6 @@ services:
   nginx_svc:
     build:
       context: .
-      image: nginx:1.2
+      image: registry.gitlab.com/atanu007/container_nginx:master 
       ports:
       - "8099:80"
