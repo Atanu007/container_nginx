@@ -13,28 +13,28 @@ variables:
   RELEASE_IMAGE: registry.gitlab.com/atanu007/container_nginx:latest
 
 before_script:
-  - docker login -u Atanu007 -p redhat@123 gitlab.com
+  - sudo docker login -u Atanu007 -p redhat@123 gitlab.com
 
 build:
   stage: build
   script:
-    - docker build --pull -t $TEST_IMAGE .
-    - docker push $TEST_IMAGE
+    - sudo docker build --pull -t $TEST_IMAGE .
+    - sudo docker push $TEST_IMAGE
 
 test:
   stage: test
   script:
-    - docker pull $TEST_IMAGE
+    - sudo docker pull $TEST_IMAGE
     - mkdir nginx
-    - docker-compose up -d  
+    - sudo docker-compose up -d  
     - sleep 10s
-    - docker ps
+    - sudo docker ps
 
 release:
   stage: release
   script:
-    - docker pull $TEST_IMAGE
-    - docker tag $TEST_IMAGE $RELEASE_IMAGE
-    - docker push $RELEASE_IMAGE
+    - sudo docker pull $TEST_IMAGE
+    - sudo docker tag $TEST_IMAGE $RELEASE_IMAGE
+    - sudo docker push $RELEASE_IMAGE
   only:
     - master  
