@@ -25,6 +25,7 @@ test:
   stage: test
   script:
     - docker pull $TEST_IMAGE
+    - mkdir nginx
     - docker-compose up -d  
     - sleep 10s
     - docker ps
