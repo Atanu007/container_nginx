@@ -3,6 +3,7 @@ services:
   nginx_svc:
     build:
       context: .
+      dockerfile: Dockerfile
       image: registry.gitlab.com/atanu007/container_nginx:master 
-      ports:
+    ports:
       - "8099:80"
